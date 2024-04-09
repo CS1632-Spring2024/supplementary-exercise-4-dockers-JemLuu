@@ -36,9 +36,6 @@ public class D3Test {
   JavascriptExecutor js;
   @Before
   public void setUp() {
-    ChromeOptions options = new ChromeOptions();
-    options.addArguments("--headless");
-    driver = new ChromeDriver(options);
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     js = (JavascriptExecutor) driver;
@@ -53,7 +50,7 @@ public class D3Test {
     // Test name: TEST-1-LINKS
     // Step # | name | target | value
     // 1 | open | / | 
-    driver.get("http://localhost:8080//");
+    driver.get("http://localhost:8080/");
     // 2 | runScript | document.cookie = "1=false";document.cookie = "2=false";document.cookie = "3=false"; | 
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
     // 3 | storeAttribute | linkText=Reset@href | href
@@ -70,7 +67,7 @@ public class D3Test {
     // Test name: TEST-2-RESET
     // Step # | name | target | value
     // 1 | open | / | 
-    driver.get("http://localhost:8080//");
+    driver.get("http://localhost:8080/");
     // 2 | runScript | document.cookie = "1=true";document.cookie = "2=true";document.cookie = "3=true"; | 
     js.executeScript("document.cookie = \"1=true\";document.cookie = \"2=true\";document.cookie = \"3=true\";");
     // 3 | click | linkText=Reset | 
@@ -87,7 +84,7 @@ public class D3Test {
     // Test name: TEST-3-CATALOG
     // Step # | name | target | value
     // 1 | open | / | 
-    driver.get("http://localhost:8080//");
+    driver.get("http://localhost:8080/");
     // 2 | runScript | document.cookie = "1=false";document.cookie = "2=false";document.cookie = "3=false"; | 
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
     // 3 | click | linkText=Catalog | 
@@ -106,7 +103,7 @@ public class D3Test {
     // Test name: TEST-4-LISTING
     // Step # | name | target | value
     // 1 | open | / | 
-    driver.get("http://localhost:8080//");
+    driver.get("http://localhost:8080/");
     // 2 | runScript | document.cookie = "1=false";document.cookie = "2=false";document.cookie = "3=false"; | 
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
     // 3 | click | linkText=Catalog | 
@@ -123,7 +120,7 @@ public class D3Test {
     // Test name: TEST-5-RENT-A-CAT
     // Step # | name | target | value
     // 1 | open | / | 
-    driver.get("http://localhost:8080//");
+    driver.get("http://localhost:8080/");
     // 2 | runScript | document.cookie = "1=false";document.cookie = "2=false";document.cookie = "3=false"; | 
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
     // 3 | click | linkText=Rent-A-Cat | 
@@ -169,7 +166,7 @@ public class D3Test {
     // Test name: TEST-7-RETURN
     // Step # | name | target | value
     // 1 | open | / | 
-    driver.get("http://localhost:8080//");
+    driver.get("http://localhost:8080/");
     // 2 | runScript | document.cookie = "1=false";document.cookie = "2=true";document.cookie = "3=false"; | 
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=true\";document.cookie = \"3=false\";");
     // 3 | click | linkText=Rent-A-Cat | 
@@ -210,7 +207,7 @@ public class D3Test {
     // Test name: TEST-9-FEED
     // Step # | name | target | value
     // 1 | open | / | 
-    driver.get("http://localhost:8080//");
+    driver.get("http://localhost:8080/");
     // 2 | runScript | document.cookie = "1=false";document.cookie = "2=false";document.cookie = "3=false"; | 
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
     // 3 | click | linkText=Feed-A-Cat | 
@@ -250,7 +247,7 @@ public class D3Test {
     // Test name: TEST-11-GREET-A-CAT-WITH-NAME
     // Step # | name | target | value
     // 1 | open | /greet-a-cat/Jennyanydots | 
-    driver.get("http://localhost:8080//greet-a-cat/Jennyanydots");
+    driver.get("http://localhost:8080/greet-a-cat/Jennyanydots");
     // 2 | assertText | xpath=//div[@id='greeting']/h4 | Meow! from Jennyanydots.
     assertThat(driver.findElement(By.xpath("//div[@id=\'greeting\']/h4")).getText(), is("Meow! from Jennyanydots."));
   }
